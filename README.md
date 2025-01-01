@@ -119,7 +119,7 @@ Clone the whole monorepository before starting the setup and navigate to the roo
 
 ### 3️⃣ Screenshoter
 
-1. Go to the `screenshots` directory.
+1. Go to the `screenshoter` directory.
 2. Install dependencies with `pnpm install`.
 3. Run the screenshoter with `pnpm start`.
 
