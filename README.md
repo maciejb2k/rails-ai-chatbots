@@ -1,6 +1,6 @@
 # Rails AI Chatbots
 
-Create a **RAG** AI chatbot from scraped data of any website levering the simplicity of **OpenAI**, **Low-Code** tools, and **Ruby on Rails**.
+Create a **RAG AI chatbot** from scraped data of any website, leveraging the simplicity of **OpenAI**, **low-code** tools, background processing and **Ruby on Rails**.
 
 <img src="preview.gif" alt="Rails AI Chatbots" style="width: 100%;" />
 
@@ -23,7 +23,7 @@ Create a **RAG** AI chatbot from scraped data of any website levering the simpli
 </p>
 
 ## Technologies Used
-- **App**: `Ruby 3.3.5`, `Ruby on Rails 7.2`, `Hotwire`, `ActiveJob`, `ActiveAdmin 4`, `TailwindCSS`.
+- **App**: `Ruby 3.3.5`, `Ruby on Rails 7.2`, `Hotwire`, `ActiveJob`, `ActiveAdmin 4`, `Docker`, `Faraday`.
 - **Low-Code LLM**: `FlowiseAI`, `OpenAI`.
 - **Vector Database**: `ChromaDB`.
 - **Relational Database**: `PostgreSQL`.
