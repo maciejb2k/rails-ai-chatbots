@@ -1,0 +1,99 @@
+<div class="image-container">
+  <%= image_tag(chatbot_creation.screenshot, class: "screenshot") %>
+</div>
+
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+      chatflowid: "<%= chatbot_creation.chatflow_id %>",
+      apiHost: "<%= ENV['FLOWISE_URL'] %>",
+      theme: {
+        button: {
+          backgroundColor: '#3387e7',
+          right: 60,
+          bottom: 40,
+          customIconSrc: '<%= asset_path("chat-logo.png") %>',
+          size: 48, // small | medium | large | number
+          dragAndDrop: true,
+          iconColor: 'white',
+          autoWindowOpen: {
+            autoOpen: true, //parameter to control automatic window opening
+            openDelay: 0, // Optional parameter for delay time in seconds
+            autoOpenOnMobile: false, //parameter to control automatic window opening in mobile
+          },
+        },
+        tooltip: {
+          showTooltip: false,
+          tooltipMessage: 'Hi There 👋!',
+          tooltipBackgroundColor: 'black',
+          tooltipTextColor: 'white',
+          tooltipFontSize: 16,
+        },
+        chatWindow: {
+          showTitle: true,
+          showAgentMessages: true,
+          title: 'Rails AI Chatbots',
+          titleAvatarSrc: '<%= asset_path("chat-logo.png") %>',
+          welcomeMessage: "Welcome to the AI Chatbot we've created for your company, <%= chatbot_creation.company.url %>. How can we assist you today?",
+          errorMessage: 'This is a custom error message',
+          backgroundColor: '#ffffff',
+          backgroundImage: 'enter image path or link', // If set, this will overlap the background color of the chat window.
+          height: 700,
+          width: 400,
+          fontSize: 16,
+          starterPrompts: ["What does <%= chatbot_creation.company.url %> do?", "What services does <%= chatbot_creation.company.url %> offer?", "What sets <%= chatbot_creation.company.url %> apart?"],
+          starterPromptFontSize: 15,
+          clearChatOnReload: true, // If set to true, the chat will be cleared when the page reloads
+          sourceDocsTitle: 'Sources:',
+          renderHTML: true,
+          botMessage: {
+            backgroundColor: '#f7f8ff',
+            textColor: '#303235',
+            showAvatar: true,
+            avatarSrc: '<%= asset_path("user.png") %>',
+          },
+          userMessage: {
+            backgroundColor: '#3B81F6',
+            textColor: '#ffffff',
+            showAvatar: true,
+            avatarSrc: '<%= asset_path("user.png") %>',
+          },
+          textInput: {
+            placeholder: 'Type your question',
+            backgroundColor: '#ffffff',
+            textColor: '#303235',
+            sendButtonColor: '#3B81F6',
+            maxChars: 250,
+            maxCharsWarningMessage: 'You exceeded the characters limit. Please input less than 1000 characters.',
+            autoFocus: true, // If not used, autofocus is disabled on mobile and enabled on desktop. true enables it on both, false disables it on both.
+            sendMessageSound: false,
+            receiveMessageSound: false,
+          },
+          feedback: {
+            color: '#303235',
+          },
+           dateTimeToggle: {
+            date: true,
+            time: true,
+          },
+          footer: {
+            textColor: '#1c1c1c',
+            text: 'Powered by',
+            company: 'Rails AI Chatbots',
+            companyLink: 'https://example.com/',
+          },
+          disclaimer: {
+            title: 'Disclaimer',
+            message: 'By using this chatbot, you agree to the <a target="_blank" href="https://flowiseai.com/terms">Terms & Condition</a>',
+          }
+        },
+      },
+    });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let shadowHost = document.querySelector('flowise-chatbot');
+    let shadowRoot = shadowHost.shadowRoot;
+  });
+</script>
